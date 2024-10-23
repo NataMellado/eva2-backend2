@@ -24,7 +24,7 @@ header {
   color: white;
   padding: 2.5rem 2rem;
   border-radius: 0 var(--br-m) var(--br-m) 0 ;
-  overflow: hidden; 
+  white-space: nowrap;
 }
 
 header .logo {
