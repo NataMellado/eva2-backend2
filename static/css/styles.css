@@ -1,3 +1,6 @@
+@import url('variables.css');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 /* reset */
 * {
   margin: 0;
@@ -7,4 +10,50 @@
 
 body {
     display: flex;
+    min-height: 100dvh;
+    color: var(--dark-gray);
+    font-family: 'League Spartan', sans-serif;
+    background-color: var(--pale-blue);
 }
+
+
+
+/* header */
+header {
+  background-color: var(--white);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 0 var(--br) var(--br) 0 ;
+  overflow: hidden; 
+}
+
+header .logo {
+  color: var(--bright-blue);
+  margin-bottom: 3rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+nav a i {
+  color: var(--dark-gray);
+  margin-right: 8px;
+}
+
+nav a {
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+
+
+/* main */
+main {
+  flex-grow: 1;
+  padding: 3rem;
+}
+
