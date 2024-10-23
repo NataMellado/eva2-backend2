@@ -1,17 +1,28 @@
 from django.shortcuts import render, HttpResponse
+from .models import User
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 def register(request):
-    return render(request, 'register.html')
+    if request.method == 'GET': # Cuando el usuario visita la página para registrarse
+        estado = 'metodo get jeje'
+        nombre = 'vacio'
+
+    if request.method == 'POST': # Cuando el usuario envía el formulario de registro
+        estado = 'metodo.post'
+        nombre = request.POST['nombre']
+        print('se envió método post ojito!!!!!!!!!!!!!!!!', nombre)
+    
+    return render(request, 'register.html', {'estado': estado + ' ' + nombre})
 
 def update(request):
     return render(request, 'update.html')
 
 def users_list(request):
-    return render(request, 'users_list.html')
+    users = User.objects.all()
+    return render(request, 'users_list.html', {'users': users, 'numero': 5} )
 
 
 
