@@ -23,7 +23,7 @@ header {
   background-color: var(--white);
   color: white;
   padding: 2.5rem 2rem;
-  border-radius: 0 var(--br) var(--br) 0 ;
+  border-radius: 0 var(--br-m) var(--br-m) 0 ;
   overflow: hidden; 
 }
 
@@ -72,7 +72,7 @@ form {
   max-width: 500px;
   background-color: var(--white);
   padding: 1.5rem;
-  border-radius: var(--br);
+  border-radius: var(--br-s);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -91,9 +91,9 @@ form .input-container {
 
 form input {
   padding: 0.5rem;
-  border: none;
+  border: 1px solid var(--light-gray);
   border-radius: 4px;
-  background-color: var(--pale-blue);
+  background-color: var(--white);
 }
 
 form input:focus {
@@ -101,7 +101,7 @@ form input:focus {
 }
 
 form button {
-  padding: 0.5rem;
+  padding: 0.6rem;
   margin-top: 1rem;
   border: none;
   border-radius: 4px;
