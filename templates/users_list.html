@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}Lista de usuarios{% endblock title %}
 {% block body %}
-    <h1>Lista de usuarios</h1>
+    <h1>Lista de médicos</h1>
     {% for user in users %}
         <p>{{ user.name }} {{ user.last_name }}</p>
     {% endfor %}

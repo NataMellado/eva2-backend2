@@ -1,9 +1,10 @@
 :root {
     /* Colors */
     --bright-blue: #4949FF;
-    --pale-blue: #D4DAE6;
+    --pale-blue: #eeecf8;
     --white: #FEFEFE;
     --dark-gray: #38383A;
+    --dark-blue: #1212c6;
     
     --br: 12px;
 }
