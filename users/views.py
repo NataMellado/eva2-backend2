@@ -19,11 +19,12 @@ def register(request):
     return render(request, 'register.html')
 
 def update(request):
-    return render(request, 'update.html')
+    users = User.objects.all()
+    return render(request, 'update.html', {'users': users})
 
 def users_list(request):
     users = User.objects.all()
-    return render(request, 'users_list.html', {'users': users, 'numero': 5} )
+    return render(request, 'users_list.html', {'users': users} )
 
 
 

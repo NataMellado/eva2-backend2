@@ -2,5 +2,50 @@
 {% block title %}Actualizar usuario{% endblock title %}
 {% block body %}
     <h1>Actualizar médico</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>
+                    <input type="text" value="{{ user.name }}" disabled>
+                </td>
+                <td>
+                    <input type="text" value="{{ user.last_name }}" disabled>
+                </td>
+                <td>
+                    <input type="text" value="{{ user.speciality }}" disabled>
+                </td>
+                <td>
+                    <input type="email" value="{{ user.email }}" disabled>
+                </td>
+                <td>
+                    <input type="text" value="{{ user.address }}" disabled>
+                </td>
+                <td>
+                    <input type="text" value="{{ user.phone }}" disabled>
+                </td>
+                <td class="actions">
+                    <button type="button"><i class="fas fa-edit"></i> </button>
+                    <button type="button"><i class="fas fa-save"></i></button>
+                    <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
 {% endblock body %}
 
