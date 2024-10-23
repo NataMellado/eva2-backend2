@@ -2,7 +2,30 @@
 {% block title %}Lista de usuarios{% endblock title %}
 {% block body %}
     <h1>Lista de médicos</h1>
-    {% for user in users %}
-        <p>{{ user.name }} {{ user.last_name }}</p>
-    {% endfor %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.speciality }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.phone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock body %}
