@@ -18,9 +18,6 @@ def register(request):
     # return render(request, 'register.html', {'estado': estado + ' ' + nombre})
     return render(request, 'register.html')
 
-def update(request):
-    users = User.objects.all()
-    return render(request, 'update.html', {'users': users})
 
 def users_list(request):
     users = User.objects.all()
