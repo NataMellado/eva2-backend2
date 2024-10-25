@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block title %}Lista de usuarios{% endblock title %}
 {% block body %}
+    <script>
+        var personas = {{ users_to_json|safe }};
+    </script>
     <h1>Lista de médicos</h1>
 
     <table>
@@ -16,35 +19,35 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="formContainer">
                 {% for user in users %}
                 <form id="usersContainerForm{{user.id}}" method='POST'>
                     {% csrf_token %}
-                <tr userId="{{user.id}}">
-                    <td>
-                        <input id="name{{ user.id }}"  name="name" type="text" value="{{ user.name }}" disabled>
-                    </td>
-                    <td>
-                        <input id="last_name{{ user.id }}" name="last_name" type="text" value="{{ user.last_name }}" disabled>
-                    </td>
-                    <td>
-                        <input id="speciality{{ user.id }}" name="speciality" type="text" value="{{ user.speciality }}" disabled>
-                    </td>
-                    <td>
-                        <input id="email{{ user.id }}" name="email" type="email" value="{{ user.email }}" disabled>
-                    </td>
-                    <td>
-                        <input id="address{{ user.id }}" name="address" type="text" value="{{ user.address }}" disabled>
-                    </td>
-                    <td>
-                        <input id="phone{{ user.id }}" name="phone" type="text" value="{{ user.phone }}" disabled>
-                    </td>
-                    <td class="actions">
-                        <button onclick="editFunction({{ user.id }})" class="editBtn" userId="{{ user.id }}" type="button"><i class="fas fa-edit"></i> </button>
-                        <button onclick="saveFunction(event, {{ user.id }})" class="saveBtn" userId="{{ user.id }}" type="button"><i class="fas fa-save"></i></button>
-                        <button onclick="deleteFunction()" class="deleteBtn" userId="{{ user.id }}" type="button"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
+                    <tr userId="{{user.id}}">
+                        <td>
+                            <input id="name{{ user.id }}"  name="name" type="text" value="{{ user.name }}" disabled>
+                        </td>
+                        <td>
+                            <input id="last_name{{ user.id }}" name="last_name" type="text" value="{{ user.last_name }}" disabled>
+                        </td>
+                        <td>
+                            <input id="speciality{{ user.id }}" name="speciality" type="text" value="{{ user.speciality }}" disabled>
+                        </td>
+                        <td>
+                            <input id="email{{ user.id }}" name="email" type="email" value="{{ user.email }}" disabled>
+                        </td>
+                        <td>
+                            <input id="address{{ user.id }}" name="address" type="text" value="{{ user.address }}" disabled>
+                        </td>
+                        <td>
+                            <input id="phone{{ user.id }}" name="phone" type="text" value="{{ user.phone }}" disabled>
+                        </td>
+                        <td class="actions">
+                            <button onclick="editFunction(event, {{ user.id }})" class="editBtn" userId="{{ user.id }}" type="button"><i class="fas fa-edit"></i></button>
+                            <button onclick="saveFunction(event, {{ user.id }})" class="saveBtn" userId="{{ user.id }}" type="button"><i class="fas fa-save"></i></button>
+                            <button onclick="deleteFunction({{ user.id }})" class="deleteBtn" userId="{{ user.id }}" type="button"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
                 </form>
             {% endfor %}
         </tbody>
