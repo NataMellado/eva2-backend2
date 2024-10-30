@@ -14,17 +14,42 @@
     <header>
         <h1 class="logo" >MEDICENTER</h1>
         <nav>
-                <a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %}"><i class="fa-solid fa-house"></i>Inicio</a>
-                <a href="{% url 'register' %}" class="{% if request.path == '/register/' %}active{% endif %}"><i class="fa-solid fa-user-plus"></i>Añadir médico</a>
-                <a href="{% url 'users_list' %}" class="{% if request.path == '/users/' %}active{% endif %}"><i class="fa-solid fa-users"></i>Lista de médicos</a>
-                
-            </nav>
-        </header>
-        
-        <main>
-            {% block body %}{% endblock body %}
-            
-        </main>
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fa-solid fa-house"></i>Inicio</a></li>
+                <li><a href="{% url 'register' %}"><i class="fa-solid fa-user-plus"></i>Añadir médico</a></li>
+                {% comment %} <li><a href="{% url 'update' %}"><i class="fa-solid fa-user-pen"></i>Actualizar/Editar médico</a></li> {% endcomment %}
+                <li><a href="{% url 'users_list' %}"><i class="fa-solid fa-users"></i>Lista de médicos</a></li>
+            </ul>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                    <ul class="message-box-error">
+                        <li>
+                            <h3 class="font-weight-light message-text">{{message}}</h3>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% if message.tags == 'success' %}
+                    <ul class="message-box-success">
+                        <li>
+                            <h3 class="font-weight-light message-text">{{message}}</h3>
+                        </li>
+                    </ul>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            <ul class="message-box-success">
+                <li>
+                    <h3 class="font-weight-light message-text">Usuario modificado exitosamente!</h3>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block body %}{% endblock body %}
+    </main>
 
         <!-- Modal -->
         <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
