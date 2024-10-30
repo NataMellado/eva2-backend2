@@ -3,22 +3,12 @@ from .models import User
 from django.contrib import messages
 import json
 
-# Create your views here.
+# Vista de la página principal
 def index(request):
     return render(request, 'index.html')
 
+# Vista de la página de registro
 def register(request):
-    # if request.method == 'GET': # Cuando el usuario visita la página para registrarse
-    #     estado = 'metodo get jeje'
-    #     nombre = 'vacio'
-
-    # if request.method == 'POST': # Cuando el usuario envía el formulario de registro
-    #     estado = 'metodo.post'
-    #     nombre = request.POST['nombre']
-    #     print('se envió método post ojito!!!!!!!!!!!!!!!!', nombre)
-    
-    # return render(request, 'register.html', {'estado': estado + ' ' + nombre})
-
     
     if request.method == 'POST': 
         
@@ -39,11 +29,10 @@ def register(request):
         
         new_user.save()
         print("Usuario guardado jejejeje")
-        
     
     return render(request, 'register.html')
 
-
+# Vista de la lista de usuarios
 def users_list(request):
     if request.method == 'POST': 
         try:
@@ -89,7 +78,5 @@ def users_list(request):
     users = User.objects.all()
     users_to_json = json.dumps(list(users.values()))
     print(users_to_json)
+    
     return render(request, 'users_list.html', {'users': users, 'users_to_json': users_to_json})
-
-def update(request):
-    return render(request, 'update.html')
