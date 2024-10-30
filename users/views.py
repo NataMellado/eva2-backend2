@@ -37,15 +37,23 @@ def register(request):
 
 # Vista de la lista de usuarios
 def users_list(request):
+    message = request.GET.get('message')
+    if message == 'error':
+        messages.error(request, 'No se puede guardar este usuario.')    
+    return render(request, 'users_list.html')
+        
     if request.method == 'POST': 
         try:
             eliminar = request.POST.get('deleteUser')
+            
+                
             if eliminar:
                 user = User.objects.get(id=eliminar)
                 user.delete()
                 print("Usuario eliminado")
                 messages.success(request, 'Usuario eliminado exitosamente!')
-                
+            
+                        
             else:
             
                 new_user_id = request.POST.get('userId')
@@ -74,6 +82,7 @@ def users_list(request):
                 user.phone = new_user_phone
                 user.save()
                 messages.success(request, 'Usuario modificado exitosamente!')
+        
         except Exception as e:
             print(e)
             messages.error(request, 'Hubo un error!')

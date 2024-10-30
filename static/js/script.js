@@ -203,7 +203,7 @@ const saveFunction = (event, userId) => {
   }
   // Si el click en GUARDAR es a un usuario diferente al que se editó, alerta
   if (lastEdited != userId) {
-    alert("No se puede guardar este usuario!");
+    window.location.href = "/users/?message=error";
     return;
   }
 
