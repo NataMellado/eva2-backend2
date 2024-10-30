@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="{% url 'index' %}"><i class="fa-solid fa-house"></i>Inicio</a></li>
                 <li><a href="{% url 'register' %}"><i class="fa-solid fa-user-plus"></i>Añadir médico</a></li>
-                <li><a href="{% url 'update' %}"><i class="fa-solid fa-user-pen"></i>Actualizar médico</a></li>
+                {% comment %} <li><a href="{% url 'update' %}"><i class="fa-solid fa-user-pen"></i>Actualizar/Editar médico</a></li> {% endcomment %}
                 <li><a href="{% url 'users_list' %}"><i class="fa-solid fa-users"></i>Lista de médicos</a></li>
             </ul>
             {% if messages %}
@@ -38,6 +38,11 @@
                 {% endfor %}
             {% endif %}
 
+            <ul class="message-box-success">
+                <li>
+                    <h3 class="font-weight-light message-text">Usuario modificado exitosamente!</h3>
+                </li>
+            </ul>
         </nav>
     </header>
 

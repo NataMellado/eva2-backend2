@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import User
 from django.contrib import messages
 import json
@@ -22,12 +22,12 @@ def register(request):
     
     if request.method == 'POST': 
         
-        new_user_name = request.POST['name']
-        new_user_last_name = request.POST['last_name']
-        new_user_speciality = request.POST['speciality']
-        new_user_email = request.POST['email']
-        new_user_address = request.POST['address']
-        new_user_phone = request.POST['phone']
+        new_user_name = request.POST.get('name')
+        new_user_last_name = request.POST.get('last_name')
+        new_user_speciality = request.POST.get('speciality')
+        new_user_email = request.POST.get('email')
+        new_user_address = request.POST.get('address')
+        new_user_phone = request.POST.get('phone')
         
         new_user = User(name=new_user_name,
                         last_name=new_user_last_name,
@@ -38,7 +38,9 @@ def register(request):
                         picture=1)
         
         new_user.save()
-        print("Usuario guardado jejejeje")
+        print("Usuario registrado")
+        messages.success(request, 'Usuario registrado exitosamente!')
+        redirect('users_list')
         
     
     return render(request, 'register.html')
