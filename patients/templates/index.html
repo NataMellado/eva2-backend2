@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Inicio{% endblock title %}
+{% block body %}
+    <div class='welcome-container'>
+        <div class='welcome-info'>
+            <h1 class='welcome-title'>Bienvenido a Medicenter</h1>
+            <p class='welcome-text'>En este sitio podrás gestionar la información de tus pacientes.</p>
+
+            <div class='btn-container'>
+                <a href='{% url "patients:add_patient" %}' class='add-btn'>Añadir paciente</a>
+                <a href='{% url "patients:patients_list" %}' class='list-btn'>Lista de pacientes</a>
+            </div>
+
+        </div>
+        <img class='welcome-image' src='{% static "images/doc.png" %}' alt='Doctor'>
+    </div>
+{% endblock body %}
