@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Iniciar Sesión{% endblock title %}
+
+{% block body %}
+<main class="login" >
+    <div class="container2 container-login">
+
+        {% include "logo_nav.html" %}
+        
+        <main class="main-login">
+            <div class="login-form">
+                <h2>Iniciar sesión</h2>
+                
+                <form id="formLogin" method="post" action="/api/login/">
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'error' %}
+                                <h4 style="color:firebrick">Error: {{message}}</h1>
+                            {% endif %}
+                            {%if message.tags == 'success'%}
+                                <h4 style="color:forestgreen">Éxito: {{message}}</h1>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <input id="emailInput" name="email" type="email" placeholder="Correo electrónico" required>
+                    <input id="passwordInput" name="password" type="password" placeholder="Contraseña" required>
+                    <input type="submit" value="Continuar">
+                </form>
+                <div class="form-footer">
+                    <p>Aún no tienes cuenta? <a href="{% url 'public:register' %}">Regístrate aquí</a></p>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</main>
+{% endblock body %}

@@ -2,17 +2,19 @@
 {% load static %}
 {% block title %}Inicio{% endblock title %}
 {% block body %}
+<main class="main-home">
     <div class='welcome-container'>
         <div class='welcome-info'>
             <h1 class='welcome-title'>Bienvenido a Medicenter</h1>
             <p class='welcome-text'>En este sitio podrás gestionar la información de tus pacientes.</p>
 
             <div class='btn-container'>
-                <a href='#' class='add-btn'>Ingresar</a>
-                <a href='#' class='list-btn'>Registrarse</a>
+                <a href='{% url "public:login" %}' class='add-btn'>Ingresar</a>
+                <a href='{% url "public:register" %}' class='list-btn'>Registrarse</a>
             </div>
 
         </div>
         <img class='welcome-image' src='{% static "images/doc.png" %}' alt='Doctor'>
     </div>
+</main>
 {% endblock body %}
