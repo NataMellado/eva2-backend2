@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block title %}Registrar usuario{% endblock title%} {% block body %} {% if estado %} {{estado}} {% endif %}
+{% extends "layout_patients.html" %} {% block title %}Registrar usuario{% endblock title%} {% block body %} {% if estado %} {{estado}} {% endif %}
 
 <form method="POST">
   {% csrf_token %}
